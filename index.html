@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f6fa;color:#26384a;font-family:'Noto Nastaliq Urdu',serif}
+.wrap{max-width:850px;margin:20px auto;padding:14px}.head,.panel{background:white;border:1px solid #d5deea;border-radius:12px;margin-bottom:14px;overflow:hidden}
+.head{text-align:center;padding:18px 12px}.bism{color:#66788a;font-size:14px}.title{font-size:25px;color:#17365d;font-weight:700}.sub{font-size:14px;color:#53657a}
+.notice{background:#eef3f8;padding:10px 14px;font-size:13px;text-align:right}
+h2{margin:0;background:#dce6f1;color:#17365d;padding:8px 14px;font-size:17px;border-bottom:1px solid #9fb3c8}
+.content{padding:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.field{display:flex;flex-direction:column;gap:3px}.full{grid-column:1/-1}
+label{font-size:13px;color:#26384a}input,select,textarea{font:14px 'Noto Nastaliq Urdu',serif;border:1px solid #bdc9d7;border-radius:7px;padding:8px 10px;width:100%;background:#fff;color:#26384a}
+textarea{min-height:68px;resize:vertical}.checks{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:6px 0}.checks label{display:flex;align-items:center;gap:5px}.checks input{width:auto}
+button{font:16px 'Noto Nastaliq Urdu',serif;background:#17365d;color:#fff;border:0;border-radius:8px;padding:10px 26px;cursor:pointer}
+.actions{text-align:center;padding:10px 14px 20px}.msg{margin:10px auto;padding:10px;border-radius:8px;display:none;max-width:650px}.ok{display:block;background:#e8f4ec;color:#176b35}.err{display:block;background:#fff0f0;color:#9d2525}
+@media(max-width:620px){.content{grid-template-columns:1fr}.title{font-size:21px}.wrap{padding:8px;margin:8px auto}}
+</style></head>
+<body><main class="wrap">
+<header class="head"><div class="bism">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِیْم</div><div class="title">ایامِ فاطمیہ — پروگرام رپورٹ فارم</div><div class="sub">مکاتبِ اثنا عشریہ کرگل | دفتر امور مکاتب، جمعیت العلماء اثناعشریہ کرگل</div></header>
+<div class="head notice">ہدایت: پروگرام کے اختتام پر ذمہ دار استاد / منتظم یہ فارم مکمل کرکے جمع کرائیں۔ ستارے (*) والے خانے لازمی ہیں۔</div>
+<form id="reportForm">
+<section class="panel"><h2>۱۔ بنیادی معلومات</h2><div class="content">
+<div class="field"><label>مکتب کا نام *</label><input name="maktab" required></div>
+<div class="field"><label>علاقہ / گاؤں</label><input name="area"></div>
+<div class="field"><label>پروگرام کی تاریخ *</label><input type="date" name="programDate" required></div>
+<div class="field"><label>مقامِ انعقاد</label><input name="venue"></div>
+<div class="field"><label>پروگرام کے ذمہ دار *</label><input name="responsible" required></div>
+<div class="field"><label>شرکت کرنے والے اساتذہ / معاونین</label><input name="teachers"></div>
+</div></section>
+<section class="panel"><h2>۲۔ طلبہ و شرکاء کی حاضری</h2><div class="content">
+<div class="field"><label>طلبہ لڑکے</label><input type="number" min="0" name="boys" id="boys"></div>
+<div class="field"><label>طلبہ لڑکیاں</label><input type="number" min="0" name="girls" id="girls"></div>
+<div class="field"><label>طلبہ کا مجموعہ (خودکار)</label><input type="number" name="totalStudents" id="total" readonly></div>
+<div class="field"><label>والدین / مہمان / دیگر شرکاء</label><input name="guests"></div>
+</div></section>
+<section class="panel"><h2>۳۔ پروگرام کی تفصیلات</h2><div class="content">
+<div class="field"><label>مجالسِ عزاداری منعقد ہوئی؟</label><select name="majalis"><option value="">منتخب کریں</option><option>ہاں</option><option>نہیں</option></select></div>
+<div class="field"><label>تعدادِ مجالس</label><input name="majalisCount" type="number" min="0"></div>
+<div class="field full"><label>خطیب / ذاکر کا نام</label><input name="khatib"></div>
+<div class="field"><label>پردہ خوانی کا پروگرام</label><select name="pardah"><option value="">منتخب کریں</option><option>منعقد ہوا</option><option>منعقد نہیں ہوا</option></select></div>
+<div class="field"><label>تعدادِ پردہ خوانی</label><input name="pardahCount" type="number" min="0"></div>
+<div class="field"><label>پردہ خوانی کے شرکاء</label><input name="pardahParticipants" type="number" min="0"></div>
+<div class="field"><label>موضوع / عنوان</label><input name="pardahTopic"></div>
+<div class="field full"><label>تبلیغ بین الصلاتین انجام دی گئی؟</label><select name="tablig"><option value="">منتخب کریں</option><option>ہاں</option><option>نہیں</option></select></div>
+<div class="field full"><label>تبلیغ کا وقت</label><div class="checks"><label><input type="checkbox" name="afterZuhrain" value="ہاں"> نمازِ ظہرین کے بعد</label><label><input type="checkbox" name="afterMaghribain" value="ہاں"> نمازِ مغربین کے بعد</label></div></div>
+<div class="field"><label>مبلغ / مقرر کا نام</label><input name="mubaligh"></div>
+<div class="field"><label>موضوعاتِ تبلیغ</label><input name="tabligTopics"></div>
+<div class="field full"><label>بچوں کے لیے تخلیقی و تعلیمی پروگرام</label><div class="checks"><label><input type="checkbox" name="painting" value="ہاں"> پینٹنگ</label><label><input type="checkbox" name="drawing" value="ہاں"> ڈرائنگ</label><label><input type="checkbox" name="quiz" value="ہاں"> فاطمی کوئز</label></div></div>
+<div class="field"><label>دیگر تخلیقی سرگرمیاں</label><input name="otherCreative"></div>
+<div class="field"><label>تخلیقی پروگرام کے شرکاء</label><input name="creativeParticipants" type="number" min="0"></div>
+</div></section>
+<section class="panel"><h2>۴۔ پروگرام کی کیفیت اور حاصل شدہ نتائج</h2><div class="content">
+<div class="field full"><label>طلبہ کی دلچسپی و شرکت</label><select name="participation"><option value="">منتخب کریں</option><option>بہت اچھی</option><option>اچھی</option><option>درمیانی</option><option>مزید توجہ درکار</option></select></div>
+<div class="field full"><label>نمایاں نتائج / طلبہ نے کیا سیکھا؟</label><textarea name="learning"></textarea></div>
+<div class="field"><label>انعامات یا اسناد تقسیم ہوئیں؟</label><select name="awards"><option value="">منتخب کریں</option><option>ہاں</option><option>نہیں</option></select></div>
+<div class="field"><label>انعامات کی تفصیل</label><input name="awardDetails"></div>
+</div></section>
+<section class="panel"><h2>۵۔ مسائل، تجاویز اور آئندہ کے اقدامات</h2><div class="content">
+<div class="field full"><label>پیش آنے والی مشکلات</label><textarea name="problems"></textarea></div>
+<div class="field full"><label>آئندہ پروگرام کے لیے تجاویز</label><textarea name="suggestions"></textarea></div>
+<div class="field full"><label>عہدِ عملِ نیک پر پیروی / آئندہ لائحۂ عمل</label><textarea name="pledge"></textarea></div>
+</div></section>
+<section class="panel"><h2>۶۔ منسلکات اور تصدیق</h2><div class="content">
+<div class="field full"><label>تصاویر / ویڈیوز کا Google Drive لنک</label><input type="url" name="mediaLinks" placeholder="https://..."></div>
+<div class="field"><label>حاضری فہرست کا لنک</label><input type="url" name="attendanceLink" placeholder="https://..."></div>
+<div class="field"><label>دیگر منسلکات کا لنک</label><input type="url" name="otherAttachments" placeholder="https://..."></div>
+<div class="field"><label>ذمہ دار استاد / منتظم کا نام</label><input name="teacherName"></div>
+<div class="field"><label>مکتب کمیٹی کے نمائندے کا نام</label><input name="committeeName"></div>
+<div class="field full"><label>اضافی نوٹ / تصدیق</label><textarea name="notes"></textarea></div>
+</div></section>
+<div class="actions"><button type="submit" id="submitBtn">رپورٹ جمع کریں</button><div id="message" class="msg"></div></div>
+</form></main>
+<script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz85CKRBGVLtHJm2xkSNj3I5pZ5_pyasfoWIzl40jlQDXrrzhi4AjfqVDIaAcC-8bQ1/exec';
+const form=document.getElementById('reportForm');
+function updateTotal(){document.getElementById('total').value=(Number(document.getElementById('boys').value)||0)+(Number(document.getElementById('girls').value)||0)}
+document.getElementById('boys').addEventListener('input',updateTotal);
+document.getElementById('girls').addEventListener('input',updateTotal);
+form.addEventListener('submit',function(e){
+ e.preventDefault(); const btn=document.getElementById('submitBtn'), msg=document.getElementById('message');
+ btn.disabled=true; btn.textContent='جمع ہو رہا ہے...'; msg.className='msg'; msg.style.display='none';
+ const data={}; new FormData(form).forEach((v,k)=>data[k]=v);
+ ['afterZuhrain','afterMaghribain','painting','drawing','quiz'].forEach(k=>{data[k]=form.querySelector('[name="'+k+'"]').checked?'ہاں':'نہیں'});
+ data.totalStudents=document.getElementById('total').value;
+ if(SCRIPT_URL.indexOf('https://')!==0 || SCRIPT_URL.indexOf('یہاں_درج_کریں')!==-1){
+   msg.textContent='منتظم نے ابھی Apps Script Web App کا لنک شامل نہیں کیا۔';msg.className='msg err';msg.style.display='block';btn.disabled=false;btn.textContent='رپورٹ جمع کریں';return;
+ }
+ fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)})
+ .then(()=>{msg.textContent='رپورٹ بھیج دی گئی ہے۔ دفتر امور مکاتب کے ریکارڈ میں اندراج کی تصدیق کے لیے منتظم Google Sheet دیکھ سکتا ہے۔';msg.className='msg ok';msg.style.display='block';form.reset();updateTotal();btn.disabled=false;btn.textContent='رپورٹ جمع کریں';})
+ .catch(()=>{msg.textContent='رپورٹ بھیجنے میں مسئلہ پیش آیا۔ انٹرنیٹ چیک کرکے دوبارہ کوشش کریں۔';msg.className='msg err';msg.style.display='block';btn.disabled=false;btn.textContent='دوبارہ کوشش کریں';});
+});
+</script></body></html>
